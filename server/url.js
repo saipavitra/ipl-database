@@ -1,0 +1,1 @@
+const url = "http://127.0.0.1:8000/"; // Localhost server will be change to real server after hosting server 
