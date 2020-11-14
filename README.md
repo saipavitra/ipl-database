@@ -1,3 +1,0 @@
-# frontend
-hi there !!
-Rajkumar
