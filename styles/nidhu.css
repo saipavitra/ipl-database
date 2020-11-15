@@ -67,3 +67,29 @@ p {
   position: absolute;
   right: 30%;
 }
+
+
+/*Download-Button*/
+.download-button {
+  margin: 5% 3% 5% 0;
+}
+
+/* Title Image */
+.title-image {
+  width: 60%;
+  transform: rotate(25deg);
+  position: absolute;
+  right: 30%;
+}
+
+/*Add Player */
+.form-container{
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #000;
+}
+
+.bg{
+
+}
