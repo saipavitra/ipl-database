@@ -27,7 +27,7 @@ p {
 }
 
 #title {
-  background-color: #b8de6f;
+  background-color: #28df99;
   color: #fff;
 }
 
@@ -58,4 +58,12 @@ p {
 /*Download-Button*/
 .download-button {
   margin: 5% 3% 5% 0;
+}
+
+/* Title Image */
+.title-image {
+  width: 60%;
+  transform: rotate(25deg);
+  position: absolute;
+  right: 30%;
 }
