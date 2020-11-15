@@ -107,3 +107,31 @@ p {
   height: 100px;
   border-radius: 50%;
 }
+
+.table{
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+.table thead tr{
+  background-color: #28df99;
+}
+
+.table thead tr{
+  color: #ffffff;
+}
+
+.table tbody tr:last-of-type{
+  border-bottom: 2px solid #28df99;
+}
+
+.table tbody tr.active-row{
+  font-weight:bold;
+  color: #28df99;
+}
+
+.score-table{
+  text-align: center;
+  color: #28df99;
+}

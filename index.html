@@ -77,20 +77,20 @@
         <section class="col-12 col-sm-6 col-md-5">
           <form class="form-container">
             <h2 class="Heading">Add Players</h2>
-              <img src="images/b.jpg" alt="player" class="avatar">
-          <div class="form-group">
-            <label class="input" for="formGroupExampleInput">First Name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Please input">
-          </div>
-          <div class="form-group">
-            <label  class="input" for="formGroupExampleInput2">Last Name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Please input">
-          </div>
-          <div class="form-group">
-            <label  class="input" for="formGroupExampleInput2">Team</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Please input">
-          </div>
-          <button type="submit" class="btn btn-success btn-block">Submit</button>
+            <img src="images/b.jpg" alt="player" class="avatar">
+            <div class="form-group">
+              <label class="input" for="formGroupExampleInput">First Name</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Please input">
+            </div>
+            <div class="form-group">
+              <label class="input" for="formGroupExampleInput2">Last Name</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Please input">
+            </div>
+            <div class="form-group">
+              <label class="input" for="formGroupExampleInput2">Team</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Please input">
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Submit</button>
           </form>
         </section>
       </section>
@@ -106,19 +106,19 @@
           <form class="form-container">
             <h2 class="Heading">Add Team</h2>
             <img src="images/e.jpg" alt="player" class="avatar">
-          <div class="form-group">
-            <label class="input" for="formGroupExampleInput">Team Name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Please input">
-          </div>
-          <div class="form-group">
-            <label class="input" for="formGroupExampleInput2">Number of Players</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Please input">
-          </div>
-          <div class="form-group">
-            <label class="input" for="formGroupExampleInput2">Team</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Please input">
-          </div>
-          <button type="submit" class="btn btn-success btn-block">Submit</button>
+            <div class="form-group">
+              <label class="input" for="formGroupExampleInput">Team Name</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Please input">
+            </div>
+            <div class="form-group">
+              <label class="input" for="formGroupExampleInput2">Number of Players</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Please input">
+            </div>
+            <div class="form-group">
+              <label class="input" for="formGroupExampleInput2">Team</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Please input">
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Submit</button>
           </form>
         </section>
       </section>
@@ -127,7 +127,47 @@
   </section>
 
   <section id="Table">
-       <h1>Table</h1>
+    <h1 class="score-table">Score Table</h1>
+    <div class="container">
+      <table class="table table-striped ">
+        <thead>
+          <tr>
+            <th scope="col">S No.</th>
+            <th scope="col">Team</th>
+            <th scope="col">Matches</th>
+            <th scope="col">Win</th>
+            <th scope="col">Loss</th>
+            <th scope="col">NRR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="active-row">
+            <th scope="row">1</th>
+            <td>MI</td>
+            <td>14</td>
+            <td>9</td>
+            <td>5</td>
+            <td>+1.107</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>DC</td>
+            <td>14</td>
+            <td>8</td>
+            <td>6</td>
+            <td>-0.109</td>
+          </tr>
+          <tr class="active-row">
+            <th scope="row">3</th>
+            <td>SRH</td>
+            <td>14</td>
+            <td>7</td>
+            <td>7</td>
+            <td>+0.608</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
 </html>
