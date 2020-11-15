@@ -1,0 +1,31 @@
+html, body{
+    margin: 0px;
+}
+
+.header-bar {
+    background-color: rgb(10, 6, 250);
+    height: 80px;
+}
+
+.header-bar .container div {
+    font-size: 20px;
+    margin-top: 20px;
+    vertical-align: end;
+}
+
+.header-bar .container .pull-left {
+    display: inline;
+    float: left;
+}
+.header-bar .container .pull-right {
+    display: inline;
+    float: right;
+}
+
+.header-bar .container a {
+    color: white;
+}
+
+.players-list ul li {
+    margin-top: 20px;
+}
