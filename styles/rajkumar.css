@@ -29,3 +29,8 @@ html, body{
 .players-list ul li {
     margin-top: 20px;
 }
+
+.top-view-id{
+    color: white;
+    z-index: 999999 !important;
+}

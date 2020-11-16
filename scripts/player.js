@@ -29,8 +29,6 @@ form.addEventListener('submit', async (e) => {
         headers: {
             'Content-Type': 'application/json'
           },
-          referrerPolicy: 'no-referrer',
-        mode: 'cors',
         body: jsonData
     });
     const response = await res.json();
