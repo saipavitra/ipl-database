@@ -141,3 +141,9 @@ p {
   height: 50px;
   border-radius: 50%;
 }
+
+/* Matches */
+.match-heading{
+  color: #28df99;
+  text-align: center;
+}
