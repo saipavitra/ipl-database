@@ -40,6 +40,8 @@
       crossorigin="anonymous"
     ></script>
 
+    <script src="./scripts/points-table.js" defer type="module"></script>
+
     <title>Document</title>
   </head>
   <body>
@@ -53,66 +55,16 @@
               <th scope="col">Logo</th>
               <th scope="col">Team</th>
               <th scope="col">Matches</th>
+              <th scope="col">Points</th>
               <th scope="col">Win</th>
               <th scope="col">Loss</th>
               <th scope="col">NRR</th>
             </tr>
           </thead>
-          <tbody>
-            <tr class="active-row">
-              <th scope="row">1</th>
-              <td><img src="images/MI.png" alt="logo" /></td>
-              <td>MI</td>
-              <td>14</td>
-              <td>9</td>
-              <td>5</td>
-              <td>+1.107</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td><img src="images/DD.png" alt="logo" /></td>
-              <td>DC</td>
-              <td>14</td>
-              <td>8</td>
-              <td>6</td>
-              <td>-0.109</td>
-            </tr>
-            <tr class="active-row">
-              <th scope="row">3</th>
-              <td><img src="images/SRH.png" alt="logo" /></td>
-              <td>DC</td>
-              <td>14</td>
-              <td>7</td>
-              <td>7</td>
-              <td>+0.0608</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td><img src="images/RCB.png" alt="logo" /></td>
-              <td>RCB</td>
-              <td>14</td>
-              <td>7</td>
-              <td>7</td>
-              <td>-0.172</td>
-            </tr>
-            <tr class="active-row">
-              <th scope="row">5</th>
-              <td><img src="images/KKR.png" alt="logo" /></td>
-              <td>KKR</td>
-              <td>14</td>
-              <td>7</td>
-              <td>7</td>
-              <td>-0.214</td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td><img src="images/CSK.png" alt="logo" /></td>
-              <td>CSK</td>
-              <td>14</td>
-              <td>6</td>
-              <td>8</td>
-              <td>-0.455</td>
-            </tr>
+          <tbody id="table-pointer">
+
+            <!-- Contents are dynamically loaded here  -->
+            
           </tbody>
         </table>
       </div>

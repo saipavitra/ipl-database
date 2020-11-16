@@ -1,13 +1,183 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <!--Google Fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu"
+      rel="stylesheet"
+    />
 
-    
+    <!--Css Stylesheet-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles/nidhu.css" />
+
+    <!--Font Awesome-->
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
+    ></script>
+
+    <!--Bootstrap Scipts-->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./scripts/matches.js" defer type="module"></script>
 
     <title>Document</title>
   </head>
   <body>
+    <section id="matches">
+      <section class="container-fluid hg">
+        <section class="row justify-content-center">
+          <section class="col-12 col-sm-6 col-md-7">
+            <form class="form-container">
+              <h2 class="Heading">Matches</h2>
+              <img src="images/f.jpg" alt="player" class="avatar" />
+              <div class="form-group">
+                <label class="input" for="formGroupExampleInput">Team1</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput"
+                  placeholder="Please input"
+                  list="datalist"
+                  name="team_one"
+                />
+              </div>
+              <div class="form-group">
+                <label class="input" for="formGroupExampleInput2"
+                  >Oponent Team</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Please input"
+                  list="datalist"
+                  name="team_two"
+                />
+              </div>
+              <div class="form-group">
+                <label class="input" for="formGroupExampleInput2">Toss</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Please input"
+                  list="datalist"
+                  name="toss"
+                />
+              </div>
+              <div class="form-group">
+                <label class="input" for="formGroupExampleInput2">Opted</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Please input"
+                  list="optlist"
+                  name="elected"
+                />
+                <datalist id="optlist"> 
+                  <option value="bat"></option>
+                  <option value="field"></option>
+                <!-- This data list will be edited through javascript     -->
+              </datalist> 
+              </div>
+              <div class="form-group">
+                <label class="input" for="formGroupExampleInput2"
+                  >Team1 Score</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Please input"
+                  name="first_inning_score"
+                />
+              </div>
+              <div class="form-group">
+                <label class="input" for="formGroupExampleInput2"
+                  >Team1 Over Taken</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Please input"
+                  name="first_inning_over"
+                />
+              </div>
+              <div class="form-group">
+                <label class="input" for="formGroupExampleInput2"
+                  >Team2 Score</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Please input"
+                  name="second_inning_score"
+                />
+              </div>
+              <div class="form-group">
+                <label class="input" for="formGroupExampleInput2"
+                  >Team2 Over Taken</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Please input"
+                  name="second_inning_over"
+                />
+              </div>
+              <div class="form-group">
+                <label class="input" for="formGroupExampleInput2"
+                  >Win(Team1/Team2)</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Please input"
+                  list="datalist"
+                  name="match_won"
+                />
+              </div>
 
+              <datalist id="datalist"> 
+                  
+                <!-- This data list will be edited through javascript     -->
+              </datalist> 
+
+
+              <button type="submit" class="btn btn-success btn-block">
+                Submit
+              </button>
+            </form>
+          </section>
+        </section>
+      </section>
+    </section>
   </body>
 </html>

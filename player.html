@@ -64,7 +64,7 @@
         <section class="row justify-content-center">
           <section class="col-12 col-sm-6 col-md-5">
             <form class="form-container">
-              <h2 class="Heading">Add Players</h2>
+              <h2 class="Heading" id="heading-handler">Add Players</h2>
               <img src="images/b.jpg" alt="player" class="avatar" />
               <div class="form-group">
                 <label class="input" for="formGroupExampleInput"
@@ -110,7 +110,15 @@
                   id="formGroupExampleInput2"
                   placeholder="Please input"
                   name="team"
+                  list="datalist"
                 />
+
+                <datalist id="datalist"> 
+  
+                  <option value="Not Known"></option> 
+                    
+                  <!-- This data list will be edited through javascript     -->
+                  </datalist> 
               </div>
               <button type="submit" class="btn btn-success btn-block">
                 Submit
