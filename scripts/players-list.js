@@ -2,12 +2,16 @@ import { url } from "../server/url.js";
 
 console.log(url);
 const template = document.querySelector(".collection");
+const spinnerHandler = document.querySelector('.spinner');
+
 let data;
 
 window.addEventListener("DOMContentLoaded", async () => {
+  spinnerHandler.style.display = 'block';
   const res = await fetch(url + "players/list/");
   const playersList = await res.json();
   data = playersList.data;
+  spinnerHandler.style.display = 'none';
 
   data.forEach((player) => {
     template.innerHTML += `<li class="collection-item avatar" id=${player.pk}>
@@ -37,7 +41,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     ele.addEventListener("click", async (e) => {
       e.stopPropagation();
       const id = e.target.parentElement.id;
-
+      spinnerHandler.style.display = 'block';
         const res = await fetch(url+'players/delete/'+id+'/', {
             method: 'POST',
             body: {},
@@ -49,11 +53,12 @@ window.addEventListener("DOMContentLoaded", async () => {
         const data = await res.json();
         console.log(data);
 
-
+        spinnerHandler.style.display = 'none';
     });
   }, true);
 
   const dataSetHandler = document.querySelector('#datalist');
+  spinnerHandler.style.display = 'block';
   const response = await fetch(url+"teams/list/");
   const resData = await response.json();
   const teamData = resData.data;
@@ -62,7 +67,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     dataSetHandler.innerHTML += `<option value=${team.pk}></option>`
   });
 
-
+  spinnerHandler.style.display = 'none';
 });
 
 template.addEventListener("click", (e) => {

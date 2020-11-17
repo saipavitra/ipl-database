@@ -5,8 +5,10 @@ const id = new URLSearchParams(window.location.search).get("id");
 const form = document.querySelector("form");
 const headingToggler = document.querySelector("#heading-handler");
 const dataSetHandler = document.querySelector('#datalist');
+const spinnerHandler = document.querySelector('.spinner');
 
 window.addEventListener("DOMContentLoaded", async () => {
+  spinnerHandler.style.display = 'block';
   if (id) {
     const res = await fetch(url + "players/details/" + id + "/");
     const playerData = await res.json();
@@ -25,11 +27,14 @@ window.addEventListener("DOMContentLoaded", async () => {
   const teamData = resData.data;
   teamData.forEach(team => {
     dataSetHandler.innerHTML += `<option value=${team.pk}></option>`
-  })
+  });
+
+  spinnerHandler.style.display = 'none';
 });
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+  spinnerHandler.style.display = 'block';
   if (id) {
     const obj = {
       body: {
@@ -74,4 +79,6 @@ form.addEventListener("submit", async (e) => {
     const response = await res.json();
     console.log(response);
   }
+
+  spinnerHandler.style.display = 'none';
 });

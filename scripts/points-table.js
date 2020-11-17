@@ -1,8 +1,10 @@
 import { url } from "../server/url.js";
 
 const tableHandler = document.querySelector('#table-pointer');
+const spinnerHandler = document.querySelector('.spinner');
 
 window.addEventListener('DOMContentLoaded', async () => {
+  spinnerHandler.style.display = 'block';
     const res = await fetch(url+"teams/list/");
     const teamData = await res.json();
     console.log(teamData.data);
@@ -23,5 +25,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 
       i+=1;
     });
+    spinnerHandler.style.display = 'none';
 
 })

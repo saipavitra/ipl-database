@@ -2,8 +2,10 @@ import { url } from "../server/url.js";
 
 console.log(url);
 const template = document.querySelector(".collection");
+const spinnerHandler = document.querySelector('.spinner');
 
 window.addEventListener("DOMContentLoaded", async () => {
+  spinnerHandler.style.display = 'block';
   const res = await fetch(url + "matches/list/");
   const playersList = await res.json();
   const data = playersList.data;
@@ -26,7 +28,11 @@ window.addEventListener("DOMContentLoaded", async () => {
                                     } won the match
                                     </p>
                                 </li>`;
+
+                                
   });
+
+  spinnerHandler.style.display = 'none';
 });
 
 

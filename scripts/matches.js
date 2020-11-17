@@ -2,10 +2,12 @@ import { url } from "../server/url.js";
 
 const form = document.querySelector("form");
 const dataSetHandler = document.querySelector('#datalist');
+const spinnerHandler = document.querySelector('.spinner');
 
 let teamData;
 
 window.addEventListener("DOMContentLoaded", async () => {
+    spinnerHandler.style.display = 'block';
 
   const response = await fetch(url+"teams/list/");
   const resData = await response.json();
@@ -13,10 +15,13 @@ window.addEventListener("DOMContentLoaded", async () => {
   console.log(teamData)
   teamData.forEach(team => {
     dataSetHandler.innerHTML += `<option value=${team.pk}></option>`
-  })
+  });
+
+  spinnerHandler.style.display = 'none';
 });
 
 form.addEventListener('submit', async (e) => {
+    spinnerHandler.style.display = 'block';
     e.preventDefault();
     let new_nrr_1, new_nrr_2;
     let new_total_matches_1, new_total_matches_2;
@@ -106,4 +111,5 @@ form.addEventListener('submit', async (e) => {
     });
     const response = await res.json();
     console.log(response.data);
+    spinnerHandler.style.display = 'none';
 })
