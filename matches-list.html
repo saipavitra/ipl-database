@@ -16,16 +16,16 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./scripts/players-list.js" defer type="module"></script>
+    <script src="./scripts/matches-list.js" defer type="module"></script>
     <title>Players list</title>
   </head>
-  <body class="pointer-only-page">
+  <body>
     <nav>
       <div class="container">
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo right">Players List</a>
+          <a href="#" class="brand-logo right">Matches List</a>
           <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="./player.html">Players Page</a></li>
+            <li><a href="./matches.html">Add Match Page</a></li>
             <li><a href="./index.html">Home</a></li>
           </ul>
         </div>
@@ -33,28 +33,6 @@
     </nav>
 
     <div class="container">
-      <br>
-      <br>
-      <br>
-
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s6">
-              <input placeholder="Team Name" id="first_name" type="text" class="validate team-name" list="datalist" autocomplete="off">
-              <label for="first_name">Search by Team</label>
-            </div>
-            <a class="waves-effect waves-light btn" type="submit">Search</a>
-        </form>
-
-        <datalist id="datalist"> 
-                  
-          <!-- This data list will be edited through javascript     -->
-        </datalist> 
-
-
-      </div>
-
         <section class="players-list">
             <ul class="collection">
               

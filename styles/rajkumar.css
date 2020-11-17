@@ -34,3 +34,51 @@ html, body{
     color: white;
     z-index: 999999 !important;
 }
+
+tr:nth-child(4) {
+    border-bottom: 2px solid #28df99;
+}
+
+body  {
+    background: linear-gradient(to bottom right, #28df99, #6fddb3);
+}
+
+#Table .container {
+    background-color: white;
+    padding: 0;
+}
+
+.padding {
+    height: 50px;
+}
+
+.pad-full-body{
+    height: 100vh;
+}
+
+.matches-pages-only .navigation-bar{
+    height: 80px;
+    color: white;
+}
+
+.matches-pages-only .avoid-pading {
+    padding-bottom:0px !important ;
+}
+
+.pointer-only-page ul {
+    cursor: pointer;
+}
+
+.waves-effect{
+    color: white;
+    background-color: rgb(240, 136, 136);
+    margin-top: 20px;
+}
+
+.validate{
+    color: green;
+}
+
+label{
+    color: rgb(240, 136, 136);
+}

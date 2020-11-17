@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         <td>${team.fields.points}</td>
         <td>${team.fields.wins}</td>
         <td>${team.fields.losses}</td>
-        <td>${team.fields.nrr}</td>
+        <td>${team.fields.nrr.toFixed(3)}</td>
       </tr>`;
 
       i+=1;
