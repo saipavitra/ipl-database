@@ -5,7 +5,7 @@ p {
     text-align: center;
 }
 
-@media only screen and (max-width: 800px)  {
+@media only screen and (max-width: 1000px)  {
     .container-fluid {
         padding: 3% 5% 7% !important;
     }
