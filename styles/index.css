@@ -1,0 +1,16 @@
+/* Responsiveness */
+
+p {
+    margin-top: 50px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 800px)  {
+    .container-fluid {
+        padding: 3% 5% 7% !important;
+    }
+    .title-image {
+        display: none;
+    }
+    
+}

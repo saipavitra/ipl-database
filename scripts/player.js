@@ -42,6 +42,7 @@ form.addEventListener("submit", async (e) => {
         first_name: form.first_name.value,
         last_name: form.last_name.value,
         date_of_birth: form.date_of_birth.value,
+        nationality: form.nationality.value,
         team: form.team.value,
       },
     };
@@ -63,6 +64,7 @@ form.addEventListener("submit", async (e) => {
         first_name: form.first_name.value,
         last_name: form.last_name.value,
         date_of_birth: form.date_of_birth.value,
+        nationality: form.nationality.value,
         team: form.team.value,
       },
     };

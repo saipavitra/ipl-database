@@ -21,7 +21,8 @@ window.addEventListener("DOMContentLoaded", async () => {
                                     <span class="title">${
                                       player.fields.first_name +
                                       " " +
-                                      player.fields.last_name
+                                      player.fields.last_name +
+                                      " - " + player.fields.nationality
                                     }</span>
                                     <p>${player.fields.date_of_birth} <br>
                                     ${

@@ -83,6 +83,9 @@ label{
     color: rgb(240, 136, 136);
 }
 
+
+
+/* Spinner */
 .spinner{
     width: 100vw;
     height: 100vh;
@@ -127,3 +130,10 @@ label{
       transform: rotate(1800deg);
     }
   }
+
+  @media only screen and (max-width: 800px)  {
+    h2{
+        font-size: 2rem;
+    }
+    
+}
