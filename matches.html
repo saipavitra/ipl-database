@@ -49,7 +49,32 @@
     <title>Add Match</title>
   </head>
   <body class="matches-pages-only">
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Form Data Error</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            The Entered Input contains Wrong Information. Please Check the form and submit.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- spinner -->
     <div class="spinner"><div class="lds-hourglass"></div></div>
+
+
     <!-- Nav Bar -->
     <div class="container-fluid avoid-pading">
     <nav class="navbar navbar-expand-lg navbar-dark avoid-pading">
@@ -136,7 +161,7 @@
               </div>
               <div class="form-group">
                 <label class="input" for="formGroupExampleInput2"
-                  >Team1 Score</label
+                  >First innings Score</label
                 >
                 <input
                   type="number"
@@ -144,11 +169,13 @@
                   id="formGroupExampleInput2"
                   placeholder="Please input"
                   name="first_inning_score"
+                  min="0"
+                  max="500"
                 />
               </div>
               <div class="form-group">
                 <label class="input" for="formGroupExampleInput2"
-                  >Team1 Over Taken</label
+                  >First innings Over Taken</label
                 >
                 <input
                   type="number"
@@ -157,11 +184,13 @@
                   id="formGroupExampleInput2"
                   placeholder="Please input"
                   name="first_inning_over"
+                  min="0"
+                  max="20"
                 />
               </div>
               <div class="form-group">
                 <label class="input" for="formGroupExampleInput2"
-                  >Team2 Score</label
+                  >Second innings Score</label
                 >
                 <input
                   type="number"
@@ -169,11 +198,13 @@
                   id="formGroupExampleInput2"
                   placeholder="Please input"
                   name="second_inning_score"
+                  min="0"
+                  max="500"
                 />
               </div>
               <div class="form-group">
                 <label class="input" for="formGroupExampleInput2"
-                  >Team2 Over Taken</label
+                  >Second innings Over Taken</label
                 >
                 <input
                   type="number"
@@ -182,11 +213,13 @@
                   id="formGroupExampleInput2"
                   placeholder="Please input"
                   name="second_inning_over"
+                  min="0"
+                  max="20"
                 />
               </div>
               <div class="form-group">
                 <label class="input" for="formGroupExampleInput2"
-                  >Win(Team1/Team2)</label
+                  >Win (Team1/Team2)</label
                 >
                 <input
                   type="text"

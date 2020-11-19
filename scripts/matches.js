@@ -20,9 +20,38 @@ window.addEventListener("DOMContentLoaded", async () => {
   spinnerHandler.style.display = 'none';
 });
 
+
+const formCheckHandler = () => {
+    if(form.team_one.value === form.team_two.value) {
+        return 0;
+    } else if (!(form.team_one.value === form.match_won.value || form.team_two.value === form.match_won.value)) {
+        return 0;
+    } else if (!(form.team_one.value === form.toss.value || form.team_two.value === form.toss.value)) {
+        return 0;
+    }
+    return 1;
+}
+
+const clearForm = () => {
+    form.team_one.value = '';
+    form.team_two.value = '';
+    form.toss.value = '';
+    form.elected.value = '';
+    form.first_inning_over.value = null;
+    form.first_inning_score.value = null;
+    form.second_inning_over.value = null;
+    form.second_inning_score.value = null;
+    form.match_won.value = '';
+}
+
 form.addEventListener('submit', async (e) => {
-    spinnerHandler.style.display = 'block';
     e.preventDefault();
+    if ( !formCheckHandler() ) {
+        $('#exampleModalCenter').modal('show')
+        return;
+    }
+
+    spinnerHandler.style.display = 'block';
     let new_nrr_1, new_nrr_2;
     let new_total_matches_1, new_total_matches_2;
     let new_points_1, new_points_2;
@@ -102,14 +131,24 @@ form.addEventListener('submit', async (e) => {
     console.log(obj);
     const json_data = JSON.stringify(obj);
 
-    const res = await fetch(url+'matches/add/', {
-        method:"POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: json_data
-    });
-    const response = await res.json();
-    console.log(response.data);
-    spinnerHandler.style.display = 'none';
+    try {
+        const res = await fetch(url+'matches/add/', {
+            method:"POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: json_data
+        });
+        const response = await res.json();
+        console.log(response.data);
+        spinnerHandler.style.display = 'none';
+
+        clearForm();
+        
+    } catch(err) {
+        alert(err.message + '\n Please Check Form.');
+        console.log(err.status);
+        spinnerHandler.style.display = 'none';
+    }
+
 })
