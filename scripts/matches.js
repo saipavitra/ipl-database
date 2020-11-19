@@ -28,6 +28,14 @@ const formCheckHandler = () => {
         return 0;
     } else if (!(form.team_one.value === form.toss.value || form.team_two.value === form.toss.value)) {
         return 0;
+    } else if ( form.toss.value === form.match_won.value && form.elected.value.toLowerCase() == "bat" && form.first_inning_score.value < form.second_inning_score.value) {
+        return 0;
+    } else if ( form.toss.value === form.match_won.value && form.elected.value.toLowerCase() == "field" && form.first_inning_score.value > form.second_inning_score.value) {
+        return 0;
+    } else if ( form.toss.value !== form.match_won.value && form.elected.value.toLowerCase() == "bat" && form.first_inning_score.value < form.second_inning_score.value) {
+        return 0;
+    } else if (form.toss.value !== form.match_won.value && form.elected.value.toLowerCase() == "field" && form.first_inning_score.value > form.second_inning_score.value) {
+        return 0;
     }
     return 1;
 }
