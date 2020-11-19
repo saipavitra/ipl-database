@@ -5,6 +5,15 @@ p {
     text-align: center;
 }
 
+.big-heading {
+    font-family: 'Courgette' !important;
+    font-size: 2.5rem;
+}
+
+.side-heading-font{
+    font-family: 'Goldman', cursive;
+}
+
 @media only screen and (max-width: 1000px)  {
     .container-fluid {
         padding: 3% 5% 7% !important;

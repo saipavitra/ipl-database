@@ -83,6 +83,19 @@ label{
     color: rgb(240, 136, 136);
 }
 
+/* Table styling overflow */
+.table-overflow-styles{
+    overflow-x: scroll !important;
+}
+
+.table-overflow-styles {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.table-overflow-styles::-webkit-scrollbar {
+    display: none;
+}
 
 
 /* Spinner */

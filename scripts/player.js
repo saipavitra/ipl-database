@@ -87,7 +87,7 @@ form.addEventListener("submit", async (e) => {
     clearForm();
     
   } catch (err) {
-    alert(err.message + "\nPlease Check the form, there is some error");
+    $('#exampleModalCenter').modal('show')
   }
 
 

@@ -146,7 +146,7 @@ form.addEventListener('submit', async (e) => {
         clearForm();
         
     } catch(err) {
-        alert(err.message + '\n Please Check Form.');
+        $('#exampleModalCenterTwo').modal('show')
         console.log(err.status);
         spinnerHandler.style.display = 'none';
     }
