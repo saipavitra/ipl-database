@@ -44,7 +44,16 @@ formHandler.addEventListener("submit", async (e) => {
     });
     const resData = await res.json();
     console.log(resData);
-    clearForm();
+
+    if(res.status >= 400) {
+      $('#exampleModalCenter').modal('show');
+
+    } else {
+      clearForm();
+  
+      displaySuccessMessage();
+
+    }
     
     } catch (err) {
       $('#exampleModalCenter').modal('show')
@@ -56,3 +65,7 @@ const clearForm = () => {
   formHandler.team_name.value = "";
   formHandler.team_color.value = "";
 };
+
+const displaySuccessMessage = () => {
+  $('#exampleModalCenterSuccess').modal('show')
+}

@@ -143,7 +143,15 @@ form.addEventListener('submit', async (e) => {
         console.log(response.data);
         spinnerHandler.style.display = 'none';
 
-        clearForm();
+        if(res.status >= 400) {
+            $('#exampleModalCenterTwo').modal('show');
+      
+          } else {
+            clearForm();
+        
+            displaySuccessMessage();
+      
+          }
         
     } catch(err) {
         $('#exampleModalCenterTwo').modal('show')
@@ -151,4 +159,9 @@ form.addEventListener('submit', async (e) => {
         spinnerHandler.style.display = 'none';
     }
 
-})
+});
+
+const displaySuccessMessage = () => {
+    $('#exampleModalCenterSuccess').modal('show')
+  }
+  

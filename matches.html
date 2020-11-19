@@ -50,6 +50,29 @@
   </head>
   <body class="matches-pages-only">
 
+    <!-- Model Suceess  -->
+
+    <div class="modal fade" id="exampleModalCenterSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Form Submitted</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            The form has be successfully submitted...
+            <p>You can view details...</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.replace('./matches-list.html')">View Matches List</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -138,6 +161,7 @@
                   id="formGroupExampleInput"
                   placeholder="Please input"
                   list="datalist"
+                  autocomplete="off"
                   name="team_one"
                 />
               </div>
@@ -151,6 +175,7 @@
                   id="formGroupExampleInput2"
                   placeholder="Please input"
                   list="datalist"
+                  autocomplete="off"
                   name="team_two"
                 />
               </div>
@@ -163,6 +188,7 @@
                   placeholder="Please input"
                   list="datalist"
                   name="toss"
+                  autocomplete="off"
                 />
               </div>
               <div class="form-group">
@@ -178,7 +204,6 @@
                 <datalist id="optlist"> 
                   <option value="bat"></option>
                   <option value="field"></option>
-                <!-- This data list will be edited through javascript     -->
               </datalist> 
               </div>
               <div class="form-group">
@@ -250,6 +275,7 @@
                   placeholder="Please input"
                   list="datalist"
                   name="match_won"
+                  autocomplete="off"
                 />
               </div>
 

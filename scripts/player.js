@@ -35,6 +35,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   spinnerHandler.style.display = "block";
+  let statusCode;
 
   try {
     if (id) {
@@ -60,6 +61,7 @@ form.addEventListener("submit", async (e) => {
       });
       const response = await res.json();
       console.log(response);
+      statusCode = res.status;
     } else {
       const obj = {
         body: {
@@ -81,10 +83,19 @@ form.addEventListener("submit", async (e) => {
         body: jsonData,
       });
       const response = await res.json();
-      console.log(response);
+      statusCode = res.status;
+
     }
 
-    clearForm();
+    if(statusCode >= 400) {
+      $('#exampleModalCenter').modal('show');
+
+    } else {
+      clearForm();
+  
+      displaySuccessMessage();
+
+    }
     
   } catch (err) {
     $('#exampleModalCenter').modal('show')
@@ -101,3 +112,7 @@ const clearForm = () => {
   form.nationality.value = "";
   form.team.value = "";
 };
+
+const displaySuccessMessage = () => {
+  $('#exampleModalCenterSuccess').modal('show')
+}
