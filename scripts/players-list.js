@@ -65,7 +65,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   const teamData = resData.data;
   console.log(teamData)
   teamData.forEach(team => {
-    dataSetHandler.innerHTML += `<option value=${team.pk}></option>`
+    dataSetHandler.innerHTML += `<option value=${team.fields.team_name}></option>`
   });
 
   spinnerHandler.style.display = 'none';
