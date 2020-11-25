@@ -3,18 +3,28 @@ import { url } from "../server/url.js";
 const form = document.querySelector("form");
 const dataSetHandler = document.querySelector('#datalist');
 const spinnerHandler = document.querySelector('.spinner');
+const selectHandler = document.querySelector("#inputGroupSelect01");
 
 let teamData;
 
 window.addEventListener("DOMContentLoaded", async () => {
     spinnerHandler.style.display = 'block';
 
+    const seasonRes = await fetch(url + "matches/season/list/");
+  const seasonData = await seasonRes.json();
+
+  const seasons = seasonData.data;
+  seasons.forEach(sea => {
+    if(sea.pk != 2020)
+    selectHandler.innerHTML += `<option value=${sea.pk}>${sea.pk}</option>`
+  });
+
   const response = await fetch(url+"teams/list/");
   const resData = await response.json();
   teamData = resData.data;
   console.log(teamData)
   teamData.forEach(team => {
-    dataSetHandler.innerHTML += `<option value=${team.pk}></option>`
+    dataSetHandler.innerHTML += `<option value=${team.fields.team_name}></option>`
   });
 
   spinnerHandler.style.display = 'none';
@@ -72,14 +82,14 @@ form.addEventListener('submit', async (e) => {
 
 
     teamData.forEach(team => {
-        if(team.pk === form.team_one.value) {
-            if((form.elected.value==="bat"&&form.toss.value===team.pk) || (form.elected.value!=="bat"&&form.toss.value!==team.pk)) {
+        if(team.fields.team_name === form.team_one.value) {
+            if((form.elected.value==="bat"&&form.toss.value===team.fields.team_name) || (form.elected.value!=="bat"&&form.toss.value!==team.fields.team_name)) {
                 new_nrr_1 = (1.0/(team.fields.total_matches+1))*(team.fields.total_matches*team.fields.nrr + (form.first_inning_score.value/form.first_inning_over.value-form.second_inning_score.value/form.second_inning_over.value));
             } else {
                 new_nrr_1 = (1.0/(team.fields.total_matches+1))*(team.fields.total_matches*team.fields.nrr - (form.first_inning_score.value/form.first_inning_over.value-form.second_inning_score.value/form.second_inning_over.value));
             }
             new_total_matches_1 = team.fields.total_matches+1;
-            if(form.match_won.value === team.pk) {
+            if(form.match_won.value === team.fields.team_name) {
                 new_points_1 = team.fields.points+2;
                 new_wins_1 = team.fields.wins + 1;
                 new_losses_1 = team.fields.losses;
@@ -92,15 +102,15 @@ form.addEventListener('submit', async (e) => {
         }
     });
     teamData.forEach(team => {
-        if(team.pk === form.team_two.value) {
-            if((form.elected.value==="bat"&&form.toss.value===team.pk) || (form.elected.value!=="bat"&&form.toss.value!==team.pk)) {
+        if(team.fields.team_name === form.team_two.value) {
+            if((form.elected.value==="bat"&&form.toss.value===team.fields.team_name) || (form.elected.value!=="bat"&&form.toss.value!==team.fields.team_name)) {
                 new_nrr_2 = (1.0/(team.fields.total_matches+1))*(team.fields.total_matches*team.fields.nrr + (form.first_inning_score.value/form.first_inning_over.value-form.second_inning_score.value/form.second_inning_over.value));
             } else {
                 new_nrr_2 = (1.0/(team.fields.total_matches+1))*(team.fields.total_matches*team.fields.nrr - (form.first_inning_score.value/form.first_inning_over.value-form.second_inning_score.value/form.second_inning_over.value));
             }
             new_total_matches_2 = team.fields.total_matches+1;
             
-            if(form.match_won.value === team.pk) {
+            if(form.match_won.value === team.fields.team_name) {
                 new_points_2 = team.fields.points+2;
                 new_wins_2 = team.fields.wins + 1;
                 new_losses_2 = team.fields.losses;
@@ -135,6 +145,7 @@ form.addEventListener('submit', async (e) => {
         new_wins_2: new_wins_2,
         new_losses_1: new_losses_1,
         new_losses_2: new_losses_2,
+        year: selectHandler.value
     };
     console.log(obj);
     const json_data = JSON.stringify(obj);
@@ -173,3 +184,19 @@ const displaySuccessMessage = () => {
     $('#exampleModalCenterSuccess').modal('show')
   }
   
+
+  selectHandler.addEventListener('change', async (e) => {
+
+    spinnerHandler.style.display = "block";
+  
+    const response = await fetch(url + "teams/"+selectHandler.value+"/list/");
+    const resData = await response.json();
+    teamData = resData.data;
+    console.log(teamData);
+    dataSetHandler.innerHTML = ``;
+    teamData.forEach((team) => {
+      dataSetHandler.innerHTML += `<option value=${team.fields.team_name}></option>`;
+    });
+  
+    spinnerHandler.style.display = "none";
+  });

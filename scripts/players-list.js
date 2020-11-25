@@ -26,8 +26,8 @@ window.addEventListener("DOMContentLoaded", async () => {
                                     }</span>
                                     <p>${player.fields.date_of_birth} <br>
                                     ${
-                                      player.fields.team
-                                        ? player.fields.team
+                                      player.fields.team !== null
+                                        ? player.fields.team_name
                                         : "Not included in any team"
                                     }
                                     </p>

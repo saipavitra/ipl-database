@@ -2,10 +2,20 @@ import { url } from "../server/url.js";
 
 const formHandler = document.querySelector("form");
 const spinnerHandler = document.querySelector(".spinner");
+const selectHandler = document.querySelector("#inputGroupSelect01");
 let teamData;
 
 window.addEventListener("DOMContentLoaded", async () => {
   spinnerHandler.style.display = "block";
+
+  const seasonRes = await fetch(url + "matches/season/list/");
+  const seasonData = await seasonRes.json();
+
+  const seasons = seasonData.data;
+  seasons.forEach(sea => {
+    if(sea.pk != 2020)
+    selectHandler.innerHTML += `<option value=${sea.pk}>${sea.pk}</option>`
+  });
 
   const response = await fetch(url + "teams/list/");
   const resData = await response.json();
@@ -32,6 +42,7 @@ formHandler.addEventListener("submit", async (e) => {
     const obj = {
       team_name: formHandler.team_name.value,
       team_color: formHandler.team_color.value,
+      season: selectHandler.value
     };
     const jsonObj = JSON.stringify(obj);
     spinnerHandler.style.display = "block";
@@ -59,6 +70,17 @@ formHandler.addEventListener("submit", async (e) => {
       $('#exampleModalCenter').modal('show')
     }
     spinnerHandler.style.display = "none";
+});
+
+selectHandler.addEventListener('change', async (e) => {
+
+  spinnerHandler.style.display = "block";
+
+  const response = await fetch(url + "teams/"+selectHandler.value+"/list/");
+  const resData = await response.json();
+  teamData = resData.data;
+  
+  spinnerHandler.style.display = "none";
 });
 
 const clearForm = () => {

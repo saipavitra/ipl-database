@@ -83,6 +83,11 @@ label{
     color: rgb(240, 136, 136);
 }
 
+.select-padding{
+    width: 400px;
+    margin: 0 auto;
+}
+
 /* Table styling overflow */
 .table-overflow-styles{
     overflow-x: scroll !important;
