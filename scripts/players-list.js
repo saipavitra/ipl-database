@@ -83,7 +83,7 @@ form.addEventListener('click', (e) => {
   console.log(template);
   template.innerHTML = '';
   data.forEach((player) => {
-    if(player.fields.team === teamName.value) {
+    if(player.fields.team_name === teamName.value) {
       
       template.innerHTML += `<li class="collection-item avatar" id=${player.pk}>
                                       <i class="material-icons circle green"><p class="top-view-id">${
@@ -97,7 +97,7 @@ form.addEventListener('click', (e) => {
                                       <p>${player.fields.date_of_birth} <br>
                                       ${
                                         player.fields.team
-                                          ? player.fields.team
+                                          ? player.fields.team_name
                                           : "Not included in any team"
                                       }
                                       </p>
