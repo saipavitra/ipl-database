@@ -60,6 +60,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         console.log(data);
 
         spinnerHandler.style.display = 'none';
+        location.reload();
     });
   }, true);
 

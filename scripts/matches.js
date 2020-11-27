@@ -1,5 +1,15 @@
 import { url } from "../server/url.js";
 
+try{
+    ky = localStorage.getItem('key');
+    if(!ky) {
+      window.location.replace("./login.html")
+    }
+} catch (e) {
+    // window.location.replace("./login.html")
+}
+
+
 const form = document.querySelector("form");
 const dataSetHandler = document.querySelector('#datalist');
 const spinnerHandler = document.querySelector('.spinner');

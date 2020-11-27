@@ -1,5 +1,16 @@
 import { url } from "../server/url.js";
 
+
+try{
+  ky = localStorage.getItem('key');
+  if(!ky) {
+    window.location.replace("./login.html")
+  }
+} catch (e) {
+  // window.location.replace("./login.html")
+}
+
+
 const formHandler = document.querySelector("form");
 const spinnerHandler = document.querySelector(".spinner");
 const selectHandler = document.querySelector("#inputGroupSelect01");
