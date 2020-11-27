@@ -7,7 +7,36 @@ const form = document.querySelector('form');
 
 window.addEventListener("DOMContentLoaded", async () => {
   spinnerHandler.style.display = 'block';
-  const res = await fetch(url + "matches/list/");
+
+  const seasonRes = await fetch(url + "matches/season/list/",{
+    headers: {
+      "Content-Type": "application/json",
+      "authorization": "Bearer "+localStorage.getItem('key')
+    }
+  });
+  const seasonData = await seasonRes.json();
+
+  const seasons = seasonData.data;
+  const selectHandler = document.querySelector('#datalist');
+  console.log(seasons)
+  selectHandler.innerHTML='';
+  let i = 0;
+  seasons.forEach(sea => {
+    if(i===0) {
+      form.year.value = sea.fields.season;
+    }
+    i+=1;
+    selectHandler.innerHTML += `<option value=${sea.fields.season}></option> `
+    
+  });
+
+
+  const res = await fetch(url + "matches/"+form.year.value+"/list/",{
+    headers: {
+      "Content-Type": "application/json",
+      "authorization": "Bearer "+localStorage.getItem('key')
+    }
+  });
   const playersList = await res.json();
   const data = playersList.data;
 
@@ -33,17 +62,23 @@ window.addEventListener("DOMContentLoaded", async () => {
                                 
   });
 
-  const seasonRes = await fetch(url + "matches/season/list/");
-  const seasonData = await seasonRes.json();
+  // const seasonRes = await fetch(url + "matches/season/list/",{
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     "authorization": "Bearer "+localStorage.getItem('key')
+  //   }
+  // });
+  // const seasonData = await seasonRes.json();
 
-  const seasons = seasonData.data;
-  const selectHandler = document.querySelector('#datalist');
-  console.log(seasons)
-  seasons.forEach(sea => {
-    if(sea.pk != 2020)
-    selectHandler.innerHTML += `<option value=${sea.pk}></option> `
+  // const seasons = seasonData.data;
+  // const selectHandler = document.querySelector('#datalist');
+  // console.log(seasons)
+  // selectHandler.innerHTML='';
+  // seasons.forEach(sea => {
+  //   if(sea.fields.season)
+  //   selectHandler.innerHTML += `<option value=${sea.fields.season}></option> `
     
-  });
+  // });
 
   spinnerHandler.style.display = 'none';
 });
@@ -53,7 +88,12 @@ submitForm.addEventListener('click', async (e) => {
   e.preventDefault();
   console.log(form.year.value)
 
-  const res = await fetch(url +"matches/"+ form.year.value +"/list/");
+  const res = await fetch(url +"matches/"+ form.year.value +"/list/", {
+    headers: {
+      "Content-Type": "application/json",
+      "authorization": "Bearer "+localStorage.getItem('key')
+    }
+  });
   const playersList = await res.json();
   const data = playersList.data;
 

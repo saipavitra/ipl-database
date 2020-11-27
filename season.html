@@ -41,24 +41,12 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="./scripts/player.js" defer type="module"></script>
+    <script src="./scripts/season.js" defer type="module"></script>
 
-    <title>Add Players</title>
+    <title>Add Season</title>
   </head>
-  <body>
-    <!-- spinner -->
-    <div class="spinner"><div class="lds-hourglass"></div></div>
+  <body class="matches-pages-only">
 
-    <div class="header-bar">
-      <div class="container">
-        <div class="pull-left">
-          <a href="./index.html">back</a>
-        </div>
-        <div class="pull-right">
-          <a href="./players-list.html">Players List</a>
-        </div>
-      </div>
-    </div>
 
     <!-- Model Suceess  -->
 
@@ -77,13 +65,14 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="window.location.replace('./players-list.html')">View Players List</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.replace('./team.html')">Add Teams</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Model  -->
+
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -99,107 +88,65 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
     </div>
 
-    <section id="Player">
-      <section class="container-fluid bg">
+    <div class="spinner"><div class="lds-hourglass"></div></div>
+
+    <div class="container-fluid avoid-pading">
+      <nav class="navbar navbar-expand-lg navbar-dark avoid-pading">
+        <a class="navbar-brand" href="./index.html">IPL</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+  
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./matches-list.html">Matches List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./points-table.html">Score Table</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    
+    <section id="Team pad-full-body">
+      <section class="container-fluid hg">
         <section class="row justify-content-center">
-          <section class="col-12 col-sm-12 col-md-8">
+          <section class="col-12 col-sm-6 col-md-5">
             <form class="form-container">
-              <h2 class="Heading" id="heading-handler">Add Players</h2>
-              <img src="images/b.jpg" alt="player" class="avatar" />
+              <h2 class="Heading">Add Season</h2>
+              <img src="images/e.jpg" alt="player" class="avatar" />
               <br>
               <br>
 
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputGroupSelect01">IPL Season</label>
-                </div>
-                <select class="custom-select" id="inputGroupSelect01" name="season">
-                  <!-- <option value="2020" selected>2020</option> -->
-                </select>
-              </div>
+              
 
-
-
+              
               <div class="form-group">
                 <label class="input" for="formGroupExampleInput"
-                  >First Name</label
+                  >season year</label
                 >
                 <input
-                  type="text"
+                  type="number"
                   class="form-control"
                   id="formGroupExampleInput"
                   placeholder="Please input"
-                  name="first_name"
+                  name="year"
                 />
               </div>
-              <div class="form-group">
-                <label class="input" for="formGroupExampleInput2"
-                  >Last Name</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="formGroupExampleInput2"
-                  placeholder="Please input"
-                  name="last_name"
-                />
-              </div>
-              <div class="form-group">
-                <label class="input" for="formGroupExampleInputDOB"
-                  >Date of birth</label
-                >
-                <input
-                  type="date"
-                  class="form-control"
-                  id="formGroupExampleInputDOB"
-                  placeholder="Please input"
-                  name="date_of_birth"
-                />
-              </div>
-              <div class="form-group">
-                <label class="input" for="formGroupExampleInputNational"
-                  >Nationality</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="formGroupExampleInputNational"
-                  placeholder="Please input"
-                  name="nationality"
-                  list="datalistnat"
-                />
-              </div>
-              <datalist id="datalistnat"> 
-  
-                <option value="India"></option> 
-                <option value="Foreign"></option> 
-                  
-                <!-- This data list will be edited through javascript     -->
-                </datalist> 
-              <div class="form-group">
-                <label class="input" for="formGroupExampleInput2">Team</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="formGroupExampleInput2"
-                  placeholder="Please input"
-                  name="team"
-                  list="datalist"
-                  autocomplete="off"onkeyup="this.value = this.value.toUpperCase();"
-                />
-
-                <datalist id="datalist"> 
-  
-                  <!-- <option value="Not Known"></option>  -->
-                    
-                  <!-- This data list will be edited through javascript     -->
-                  </datalist> 
-              </div>
+              
               <button type="submit" class="btn btn-success btn-block">
                 Submit
               </button>

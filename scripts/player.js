@@ -11,18 +11,33 @@ const selectHandler = document.querySelector("#inputGroupSelect01");
 window.addEventListener("DOMContentLoaded", async () => {
   spinnerHandler.style.display = "block";
 
-  const seasonRes = await fetch(url + "matches/season/list/");
+  const seasonRes = await fetch(url + "matches/season/list/", {
+    method: 'GET',
+    headers: {
+      "Content-Type": "application/json",
+      "authorization": "Bearer "+localStorage.getItem('key')
+    }
+  });
   const seasonData = await seasonRes.json();
 
   const seasons = seasonData.data;
+  let j = 0;
   seasons.forEach(sea => {
-    if(sea.pk != 2020)
-    selectHandler.innerHTML += `<option value=${sea.pk}>${sea.pk}</option>`
+    if(j===0) {
+      selectHandler.value = sea.fields.season;
+      j=1;
+    }
+    selectHandler.innerHTML += `<option value=${sea.fields.season}>${sea.fields.season}</option>`
   });
 
 
   if (id) {
-    const res = await fetch(url + "players/details/" + id + "/");
+    const res = await fetch(url + "players/details/" + id + "/", {
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": "Bearer "+localStorage.getItem('key')
+      }
+    });
     const playerData = await res.json();
     const data = playerData.data;
     console.log(data)
@@ -31,14 +46,20 @@ window.addEventListener("DOMContentLoaded", async () => {
     form.last_name.value = data.last_name;
     form.date_of_birth.value = data.date_of_birth;
     form.nationality.value = data.nationality;
-    form.team.value = data.team;
+    form.team.value = data.team_name;
     selectHandler.value = data.year
 
     headingToggler.innerHTML = "Update Player";
   }
 
-  const response = await fetch(url + "teams/list/");
+  const response = await fetch(url + "teams/"+selectHandler.value+"/list/", {
+    headers: {
+      "Content-Type": "application/json",
+      "authorization": "Bearer "+localStorage.getItem('key')
+    }
+  });
   const resData = await response.json();
+  console.log(resData)
   const teamData = resData.data;
   teamData.forEach((team) => {
     dataSetHandler.innerHTML += `<option value=${team.fields.team_name}></option>`;
@@ -54,11 +75,16 @@ selectHandler.addEventListener('change', async (e) => {
 
   spinnerHandler.style.display = "block";
 
-  const response = await fetch(url + "teams/"+selectHandler.value+"/list/");
+  const response = await fetch(url + "teams/"+selectHandler.value+"/list/", {
+    headers: {
+      "Content-Type": "application/json",
+      "authorization": "Bearer "+localStorage.getItem('key')
+    }
+  });
   const resData = await response.json();
   const teamData = resData.data;
   console.log(teamData);
-  dataSetHandler.innerHTML = `<option value="Not Known"></option>`;
+  dataSetHandler.innerHTML = ``;
   teamData.forEach((team) => {
     dataSetHandler.innerHTML += `<option value=${team.fields.team_name}></option>`;
   });
@@ -92,6 +118,8 @@ form.addEventListener("submit", async (e) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "authorization": "Bearer "+localStorage.getItem('key')
+
         },
         body: jsonData,
       });
@@ -116,6 +144,7 @@ form.addEventListener("submit", async (e) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "authorization": "Bearer "+localStorage.getItem('key')
         },
         body: jsonData,
       });

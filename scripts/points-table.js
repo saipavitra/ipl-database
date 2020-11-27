@@ -7,17 +7,31 @@ const selectHandler = document.querySelector("#inputGroupSelect01");
 window.addEventListener('DOMContentLoaded', async () => {
   spinnerHandler.style.display = 'block';
 
-  const seasonRes = await fetch(url + "matches/season/list/");
+  const seasonRes = await fetch(url + "matches/season/list/",{
+    headers: {
+      "Content-Type": "application/json",
+      "authorization": "Bearer "+localStorage.getItem('key')
+    }
+  });
   const seasonData = await seasonRes.json();
 
   const seasons = seasonData.data;
+  let j = 0;
   seasons.forEach(sea => {
-    if(sea.pk != 2020)
-    selectHandler.innerHTML += `<option value=${sea.pk}>${sea.pk}</option>`
+    if(j===0) {
+      selectHandler.value = sea.fields.season;
+      j+=1;
+    }
+    selectHandler.innerHTML += `<option value=${sea.fields.season}>${sea.fields.season}</option>`
   });
 
 
-    const res = await fetch(url+"teams/list/");
+    const res = await fetch(url+"teams/"+selectHandler.value+"/list/",{
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": "Bearer "+localStorage.getItem('key')
+      }
+    });
     const teamData = await res.json();
     console.log(teamData.data);
     const data = teamData.data;
@@ -49,7 +63,12 @@ selectHandler.addEventListener('change', async (e) => {
 
   spinnerHandler.style.display = "block";
 
-  const response = await fetch(url + "teams/"+selectHandler.value+"/list/");
+  const response = await fetch(url + "teams/"+selectHandler.value+"/list/",{
+    headers: {
+      "Content-Type": "application/json",
+      "authorization": "Bearer "+localStorage.getItem('key')
+    }
+  });
   const resData = await response.json();
   const data = resData.data;
   console.log(data);

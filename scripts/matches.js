@@ -10,16 +10,27 @@ let teamData;
 window.addEventListener("DOMContentLoaded", async () => {
     spinnerHandler.style.display = 'block';
 
-    const seasonRes = await fetch(url + "matches/season/list/");
+    const seasonRes = await fetch(url + "matches/season/list/", {
+        headers: {
+          "Content-Type": "application/json",
+          "authorization": "Bearer "+localStorage.getItem('key')
+        }
+      });
   const seasonData = await seasonRes.json();
 
   const seasons = seasonData.data;
+  selectHandler.innerHTML=''
   seasons.forEach(sea => {
-    if(sea.pk != 2020)
-    selectHandler.innerHTML += `<option value=${sea.pk}>${sea.pk}</option>`
+    if(sea.fields.season)
+    selectHandler.innerHTML += `<option value=${sea.fields.season}>${sea.fields.season}</option>`
   });
 
-  const response = await fetch(url+"teams/list/");
+  const response = await fetch(url+"teams/"+ selectHandler.value +"/list/", {
+    headers: {
+      "Content-Type": "application/json",
+      "authorization": "Bearer "+localStorage.getItem('key')
+    }
+  });
   const resData = await response.json();
   teamData = resData.data;
   console.log(teamData)
@@ -155,6 +166,7 @@ form.addEventListener('submit', async (e) => {
             method:"POST",
             headers: {
                 "Content-Type": "application/json",
+                "authorization": "Bearer "+localStorage.getItem('key')
             },
             body: json_data
         });
@@ -189,7 +201,12 @@ const displaySuccessMessage = () => {
 
     spinnerHandler.style.display = "block";
   
-    const response = await fetch(url + "teams/"+selectHandler.value+"/list/");
+    const response = await fetch(url + "teams/"+selectHandler.value+"/list/", {
+        headers: {
+          "Content-Type": "application/json",
+          "authorization": "Bearer "+localStorage.getItem('key')
+        }
+      });
     const resData = await response.json();
     teamData = resData.data;
     console.log(teamData);

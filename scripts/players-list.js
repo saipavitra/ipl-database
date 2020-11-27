@@ -8,7 +8,12 @@ let data;
 
 window.addEventListener("DOMContentLoaded", async () => {
   spinnerHandler.style.display = 'block';
-  const res = await fetch(url + "players/list/");
+  const res = await fetch(url + "players/list/", {
+    headers: {
+      "Content-Type": "application/json",
+      "authorization": "Bearer "+localStorage.getItem('key')
+    }
+  });
   const playersList = await res.json();
   data = playersList.data;
   spinnerHandler.style.display = 'none';
@@ -60,7 +65,12 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   const dataSetHandler = document.querySelector('#datalist');
   spinnerHandler.style.display = 'block';
-  const response = await fetch(url+"teams/list/");
+  const response = await fetch(url+"teams/list/", {
+    headers: {
+      "Content-Type": "application/json",
+      "authorization": "Bearer "+localStorage.getItem('key')
+    }
+  });
   const resData = await response.json();
   const teamData = resData.data;
   console.log(teamData)
