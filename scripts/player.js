@@ -32,6 +32,10 @@ window.addEventListener("DOMContentLoaded", async () => {
   const seasonData = await seasonRes.json();
 
   const seasons = seasonData.data;
+  if(seasons.length === 0) {
+    alert("Please Add the IPL season before adding matches");
+    return;
+}
   let j = 0;
   seasons.forEach(sea => {
     if(j===0) {
