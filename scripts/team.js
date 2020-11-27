@@ -31,6 +31,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   const seasons = seasonData.data;
   if(seasons.length === 0) {
     alert("Please Add the IPL season before adding matches");
+    window.location.replace('./season.html');
     return;
 }
   selectHandler.innerHTML='';
