@@ -1,12 +1,8 @@
 import { url } from "../server/url.js";
 
-try{
-  ky = localStorage.getItem('key');
-  if(!ky) {
-    window.location.replace("./login.html")
-  }
-} catch (e) {
-  // window.location.replace("./login.html")
+const ky = localStorage.getItem('key');
+if(!ky) {
+  window.location.replace("./login.html")
 }
 
 const tableHandler = document.querySelector('#table-pointer');

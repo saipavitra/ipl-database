@@ -1,5 +1,10 @@
 import { url } from "../server/url.js";
 
+const ky = localStorage.getItem('key');
+if(!ky) {
+  window.location.replace("./login.html")
+}
+
 console.log(url);
 const template = document.querySelector(".collection");
 const spinnerHandler = document.querySelector('.spinner');
