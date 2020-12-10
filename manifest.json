@@ -1,0 +1,16 @@
+{
+    "name":"IPL Database",
+    "short_name": "IPL",
+    "start_url": "./index.html",
+    "display":"browser",
+    "background_color": "#28df99",
+    "theme_color":"#28df99",
+    "orientation":"portrait-primary",
+    "icons":[
+        {
+            "src":"./images/img192.png",
+            "type":"image/png",
+            "sizes":"192x192"
+        }
+    ]
+}
