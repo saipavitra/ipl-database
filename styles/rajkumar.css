@@ -176,3 +176,29 @@ label{
     }
     
 }
+
+
+/* // line chat stylings */
+#teamListDisplay {
+    padding: 10px 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#teamListDisplay li {
+    display: inline-block;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#teamListDisplay .active {
+    border-color: green;
+    color: white;
+    background-color: rgb(124, 124, 212);
+}

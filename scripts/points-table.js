@@ -8,7 +8,8 @@ if(!ky) {
 const tableHandler = document.querySelector('#table-pointer');
 const spinnerHandler = document.querySelector('.spinner');
 const selectHandler = document.querySelector("#inputGroupSelect01");
-const finalDataPlot = [];
+let finalDataPlot = [], finalLinePlot = [];
+let teamMatchList = {};
 let matchList;
 let teamList;
 
@@ -77,6 +78,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     const temp = await resMatch.json();
     matchList = temp.data;
 
+    drawLineGraph();
+    displayTeamList();
     callLinearRegression();
     spinnerHandler.style.display = 'none';
 
@@ -124,10 +127,66 @@ selectHandler.addEventListener('change', async (e) => {
     });
     const playersList = await res.json();
     matchList = playersList.data;
+    drawLineGraph();
+    displayTeamList();
     callLinearRegression();
 
   spinnerHandler.style.display = "none";
 });
+
+const displayTeamList = () => {
+  const ListTeam = document.querySelector('#teamListDisplay');
+
+  ListTeam.innerHTML='';
+
+  teamList.forEach(team => {
+    ListTeam.innerHTML += `<li id=${team.fields.team_name}>${team.fields.team_name}</li>`
+  });
+
+  ListTeam.addEventListener('click', (e) => {
+    let changeLineGraph = e.target.closest('li').id;
+    for(const tm in teamMatchList) {
+      if(tm === changeLineGraph) {
+        console.log(teamMatchList[tm])
+        finalLinePlot=[];
+        let sm=0;
+        finalLinePlot.push({y: sm})
+        for(let j=0;j<teamMatchList[tm].length;j++) {
+          if(teamMatchList[tm][j].match_won_txt===changeLineGraph) sm+=2;
+          finalLinePlot.push({y: sm})
+        }
+      }
+    }
+    console.log(finalLinePlot);
+    let lstTag = document.querySelectorAll('li');
+    lstTag.forEach(li => {
+      li.classList.remove('active');
+    });
+    e.target.closest('li').classList.add('active')
+    drawLineGraph();
+  })
+}
+
+
+
+
+// Line Graph of Teams
+const drawLineGraph = () => {
+  console.log("Entering")
+  var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light2",
+    title:{
+      text: "Simple Line Chart"
+    },
+    data: [{        
+      type: "line",
+          indexLabelFontSize: 16,
+      dataPoints: finalLinePlot
+    }]
+  });
+  chart.render();
+}
 
 
 // Machine Learning multivalued Linear Regression
@@ -137,11 +196,13 @@ const pointsFactor = 0.30;
 const winToLossFactor = 0.30;
 const lastThreeMatchFactor = 0.20;
 const lastMatchFactor = 0.05;
+
 const callLinearRegression = () => {
   console.log(teamList, matchList);
   const teams = teamList, matches = matchList;
   const totalTeam = teamList.length;
-  const predictorPoint = {}, teamMatchList = {};
+  const predictorPoint = {};
+  teamMatchList = {};
 
   // Total Points regression
   let totalPoints=0, minNRR = 0, maxNRR = 0;
@@ -233,6 +294,7 @@ const callLinearRegression = () => {
   // Final integration of all reggression variable
   // creating data points for chat plotting
   const finalPredictor = {};
+  finalDataPlot = [];
   teams.forEach(team => {
     const teamName=team.fields.team_name;
     finalPredictor[teamName] = predictorPoint[teamName]*pointsFactor + predictorNRR[teamName]*nrrFactor + predictorWinRate[teamName]*winToLossFactor + predictorLastThreeMatch[teamName]*lastThreeMatchFactor + predictorLastMatch[teamName]*lastMatchFactor;
@@ -240,6 +302,7 @@ const callLinearRegression = () => {
   })
 
   console.log(finalPredictor, finalDataPlot);
+  console.log(teamMatchList);
 
   plotGraph();
   

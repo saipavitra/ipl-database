@@ -56,6 +56,9 @@
   <script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
   <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
+
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
     <title>Points Table</title>
   </head>
   <body class="matches-pages-only">
@@ -122,9 +125,17 @@
           </tbody>
         </table>
       </div>
-      <div class="padding">
-        
+      <div class="padding"></div>
+      <h1 class="score-table" style="font-family: 'Goldman';font-size: 3rem;">Line Graph</h1>
+      <div class="container">
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        <p class="center-align" style="text-align: center;">matches vs progress analysis of teams</p>
+        <ul id="teamListDisplay">
+          
+        </ul>
       </div>
+
+      <div class="padding"></div>
       <h1 class="score-table" style="font-family: 'Goldman';font-size: 3rem;">Tournament Winner Predictor</h1>
       <div class="container">
         <div id="chartdiv"></div>
