@@ -1,0 +1,204 @@
+html, body{
+    margin: 0px;
+}
+
+.header-bar {
+    background-color:rgb(92, 194, 92);
+    height: 80px;
+}
+
+.header-bar .container div {
+    font-size: 20px;
+    margin-top: 20px;
+    vertical-align: end;
+}
+
+.header-bar .container .pull-left {
+    display: inline;
+    float: left;
+}
+.header-bar .container .pull-right {
+    display: inline;
+    float: right;
+}
+
+.header-bar .container a {
+    color: white;
+}
+
+.players-list ul li {
+    margin-top: 20px;
+}
+
+.top-view-id{
+    color: white;
+    z-index: 999999 !important;
+}
+
+tr:nth-child(4) {
+    border-bottom: 2px solid #28df99;
+}
+
+body  {
+    background: linear-gradient(to bottom right, #28df99, #6fddb3);
+}
+
+#Table .container {
+    background-color: white;
+    padding: 0;
+}
+
+.padding {
+    height: 50px;
+}
+
+.pad-full-body{
+    height: 100vh;
+}
+
+.matches-pages-only .navigation-bar{
+    height: 80px;
+    color: white;
+}
+
+.matches-pages-only .avoid-pading {
+    padding-bottom:0px !important ;
+}
+
+.pointer-only-page ul {
+    cursor: pointer;
+}
+
+.waves-effect{
+    color: white;
+    background-color: rgb(240, 136, 136);
+    margin-top: 20px;
+}
+
+.validate{
+    color: green;
+}
+
+label{
+    color: rgb(240, 136, 136);
+}
+
+.select-padding{
+    width: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Table styling overflow */
+.table-overflow-styles{
+    overflow-x: scroll !important;
+}
+
+.table-overflow-styles {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.table-overflow-styles::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Spinner */
+.spinner{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(255,255,255,0.5);
+    z-index:9999;
+    display:none;
+}
+
+.lds-hourglass {
+    display: inline-block;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    top: 50vh;
+    left: 50vw;
+    z-index:99999;
+  }
+  .lds-hourglass:after {
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    margin: 8px;
+    box-sizing: border-box;
+    border: 32px solid red;
+    border-color: pink transparent pink transparent;
+    animation: lds-hourglass 1.2s infinite;
+  }
+  @keyframes lds-hourglass {
+    0% {
+      transform: rotate(0);
+      animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    50% {
+      transform: rotate(900deg);
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    100% {
+      transform: rotate(1800deg);
+    }
+  }
+
+  @media only screen and (max-width: 800px)  {
+    h2{
+        font-size: 2rem;
+    }
+    
+}
+
+.login-form {
+    padding: 30px;
+    background-color: white;
+    width: 80vw;
+    margin: 50px auto;
+}
+
+.login-form form {
+    width: auto;
+    margin: auto;
+}
+
+@media only screen and (max-width: 800px)  {
+    .login-form {
+        width: 90vw;
+        margin: 50px auto;
+    }
+    
+}
+
+
+/* // line chat stylings */
+#teamListDisplay {
+    padding: 10px 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#teamListDisplay li {
+    display: inline-block;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#teamListDisplay .active {
+    border-color: green;
+    color: white;
+    background-color: rgb(124, 124, 212);
+}
